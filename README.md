@@ -36,7 +36,9 @@ Estas são as rodas para uso deste webservice:
 | Função | Rota | Parametro | Tipo |
 | ------ | ------ | ------ | ------ |
 | Listar Todos | /api/carro | Nenhum | GET
-| Exibir | /api/carro/id | ID do Carro | GET
+| Buscar por id | /api/carro/id | ID do Carro | GET
+| Buscar por disponibilidade | /api/carro/disponivel | disponibilidade (Boolean) | GET
+| Buscar por modelo | /api/carro/modelo | modelo | GET
 | Cadastrar | /api/carro | JSON do Carro | POST
 | Editar | /api/carro/id | ID do Carro | PUT
 | Remover | /api/carro/id | ID do Carro | DELETE
