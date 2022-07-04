@@ -36,12 +36,12 @@ Estas são as rodas para uso deste webservice:
 | Função | Rota | Parametro | Tipo |
 | ------ | ------ | ------ | ------ |
 | Listar Todos | /api/carro | Nenhum | GET
-| Buscar por id | /api/carro/id | ID do Carro | GET
+| Buscar por id | /api/carro/id | ID do Carro (Long) | GET
 | Buscar por disponibilidade | /api/carro/disponivel | disponibilidade (Boolean) | GET
-| Buscar por modelo | /api/carro/modelo | modelo | GET
+| Buscar por modelo | /api/carro/modelo | modelo (String) | GET
 | Cadastrar | /api/carro | JSON do Carro | POST
-| Editar | /api/carro/id | ID do Carro | PUT
-| Remover | /api/carro/id | ID do Carro | DELETE
+| Editar | /api/carro/id | ID do Carro (Long) | PUT
+| Remover | /api/carro/id | ID do Carro (Long) | DELETE
 
 ## Para mais detalhes e efetuar os testes, basta executar o Swagger do projeto pelo endereço:
 ```
