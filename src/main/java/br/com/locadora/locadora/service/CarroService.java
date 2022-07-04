@@ -20,52 +20,49 @@ public class CarroService {
 
     private final CarroRepository carroRepository;
 
-    public List<Carro> listAll(Pageable page) {
-        Page<Carro> carros = carroRepository.findAll(page);
-        return carros.stream().collect(Collectors.toList());
+    public Page<Carro> listAll(Pageable page) {
+        return carroRepository.findAll(page);
+
     }
 
     public Carro findById(Long id) throws CarroNotFoundException {
-        Carro carro = verifyIfExists(id);
-        return carro;
+        return verifyIfExists(id);
     }
 
     public List<Carro> findByModelo(String  modelo) throws CarroNotFoundException {
-        List<Carro> carros = carroRepository.findByModelo(modelo);
-        return carros;
+        return carroRepository.findByModelo(modelo);
     }
 
     public List<Carro> findByDisponivel(Boolean  disponivel) {
-        List<Carro> carros = carroRepository.findByDisponivel(disponivel);
-        return carros;
+        return carroRepository.findByDisponivel(disponivel);
     }
 
     public synchronized Carro updateById(Long id, Carro carro) throws CarroNotFoundException {
-        Carro carroToUpdate = carro;
-
         verifyIfExists(id);
 
-        carroToUpdate.setId(id);
+        carro.setId(id);
 
-        Carro updateCarro = carroRepository.save(carroToUpdate);
+        Carro updateCarro = carroRepository.save(carro);
 
-        log.info("Atualizado carro com id: [{}] ", carro.getId());
+        log.info("Atualizado carro com id: [{}] ", updateCarro.getId());
+
         return updateCarro;
     }
 
     public synchronized Carro createCarro(Carro carro) {
-        Carro carroToSave = carro;
-        Carro savedCarro = carroRepository.save(carroToSave);
+        Carro savedCarro = carroRepository.save(carro);
 
-        log.info("Criado carro com id [{}]", carro.getId());
+        log.info("Criado carro {}", savedCarro.toString());
+
         return savedCarro;
     }
 
-    public synchronized ResponseEntity delete(Long id) throws CarroNotFoundException {
+    public synchronized void delete(Long id) throws CarroNotFoundException {
         verifyIfExists(id);
+
         carroRepository.deleteById(id);
+
         log.info("Excluído carro com id: [{}]", id);
-        return ResponseEntity.ok(String.format("Carro excluído com sucesso"));
     }
 
     private Carro verifyIfExists(Long id) throws CarroNotFoundException {

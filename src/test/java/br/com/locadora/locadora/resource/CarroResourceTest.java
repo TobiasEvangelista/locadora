@@ -17,6 +17,8 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -47,7 +49,7 @@ public class CarroResourceTest {
 
     @Test
     void findAll() throws Exception {
-        List<Carro> carroPage = new ArrayList<>(List.of(createCarros()));
+        Page<Carro> carroPage = new PageImpl<>(List.of(createCarros()));
 
         when(carroService.listAll(ArgumentMatchers.any())).thenReturn(carroPage);
 
@@ -55,10 +57,10 @@ public class CarroResourceTest {
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.[0].id", is(1)))
-                .andExpect(jsonPath("$.[0].marca", is("Fiat")))
-                .andExpect(jsonPath("$.[0].modelo", is("Uno")))
-                .andExpect(jsonPath("$.[0].disponivel", is(Boolean.TRUE)));
+                .andExpect(jsonPath("$.content[0].id", is(1)))
+                .andExpect(jsonPath("$.content[0].marca", is("Fiat")))
+                .andExpect(jsonPath("$.content[0].modelo", is("Uno")))
+                .andExpect(jsonPath("$.content[0].disponivel", is(Boolean.TRUE)));
 
     }
 

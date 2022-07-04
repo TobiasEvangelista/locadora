@@ -6,12 +6,10 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Table(name = "carro", schema = "locadora")
+@Table(name = "carro")
 public class Carro {
 
     @ApiModelProperty(value = "Código do carro")
@@ -20,7 +18,6 @@ public class Carro {
     private Long id;
 
     @ApiModelProperty(value = "Marca do carro")
-    @JoinColumn(name = "marca")
     private String marca;
 
     @ApiModelProperty(value = "Modelo do carro")
