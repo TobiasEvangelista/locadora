@@ -23,7 +23,7 @@ Clone o projeto e importe com a IDE suportada que lhe convir como um projeto Mav
 Caso venha a usar o Postgres como persistencia o projeto já está com o driver do mesmo instalado, então vá para:
 
 ```
-src > main > java > resources > application.properties
+src > main > resources > application.properties
 ```
 Caso venha a utilizar outro banco será necessário adicionar o Driver do mesmo no pom.xml. Após isso, vá ao application.properties e ajuste os dados de acordo com o seu SGBD.
 
