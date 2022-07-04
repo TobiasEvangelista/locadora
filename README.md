@@ -6,7 +6,7 @@ Neste código foi feito um REST CRUD API para gerenciamento de carros.
 
 ### Especificações principais
 
-* [Spring](https://spring.io/) - v5.1.2.RELEASE - Framework Web Java/Kotlin MVW
+* [Spring](https://spring.io/) - v5.1.2.RELEASE - Framework Web Java
 * [Spring Boot](https://spring.io/projects/spring-boot) - 2.7.1 - Framework Initializer
 * [Java](https://www.java.com/) - 11.0.13 - Linguagem
 * [Hibernate](http://hibernate.org/orm/) - v5.6.9.Final - ORM
