@@ -30,7 +30,7 @@ Caso venha a utilizar outro banco será necessário adicionar o Driver do mesmo 
 Agora aguarde sua IDE baixar as dependencias ou execute o mvn spring-boot:run caso tenha configurado o Maven separadamente.
 
 ### Rotas
-Estas são as rodas para uso deste webservice:
+Estas são as rotas para uso deste webservice:
 
 #### Carros:
 | Função | Rota | Parametro | Tipo |
